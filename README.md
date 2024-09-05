@@ -24,7 +24,7 @@ lab8 ทำตามchat gptน่ะ <br/>
     ```
     public function showPersonality($id)
     {
-        $user = User::with('personalityType')->find($id); // Eager load personalityType
+        $user = User::with('personalityType')->find($id); 
         return view('user.profile', compact('user'));
     }
     ```
