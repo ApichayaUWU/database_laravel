@@ -37,7 +37,7 @@
     };
 
   ```
-- ส่ค่า personality_type_id ในตาราง users จะnull ถ้าจะtestก็ไปmanual insertในdbeaverเผื่อไว้test หรือจะเขียนmethodให้laravelเพิ่มเองก็ได้ แต่เราไม่ทำละ เขาไม่ได้บอก
+- ค่า personality_type_id ในตาราง users จะnull ถ้าจะtestก็ไปmanual insertในdbeaverเผื่อไว้test หรือจะเขียนmethodให้laravelเพิ่มเองก็ได้ แต่เราไม่ทำละ เขาไม่ได้บอก
 ## ทำ Models
 - ไปที่ไฟล์ Models/PersonalityType.php ที่สร้างไว้ ยัดโค้ด
   ```
