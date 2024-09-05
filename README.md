@@ -6,7 +6,7 @@
   ```
    ./vendor/bin/sail artisan make:migration add_personality_type_id_to_users_table
   ```
-- เขียนไฟล์ migrate ของ add ให้เรียบร้อย(คุ้ยเอาในgitนี้ก็ได้) แล้วก็ ./vendor/bin/sail artisan migrate
+- เขียนไฟล์ migrate ของ add_personality_type_id_to_users_table.php ให้เรียบร้อย(คุ้ยเอาในgitนี้ก็ได้) แล้วก็ ./vendor/bin/sail artisan migrate
   ```
   <?php
 
