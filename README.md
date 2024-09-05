@@ -31,8 +31,10 @@ lab8 ทำตามchat gptน่ะ <br/>
 - ไปเขียน frontend ที่ resource > views > profile > partial > update-profile-information-form.blade บรรทัดประมาณ55-56 ระหว่าง bio กับ save <br/>
   ส่วนโค้ดfrontendนี่แล้วแต่เลย เขียนไงก็ได้ ของเราเขียนงี้ ตลกนิดนึง แต่ไม่แก้ละ เหนื่อย
   ```
-   <!-- ////////////////////////// -->
-        <!-- edit personality view here -->
+  <!-- ////////////////////////// -->
+  <!-- edit personality view here -->
+
+  
         <h4 class="font-medium text-blue-900 dark:text-blue-100">
             {{ __('Personality Type Information ') }}
         </h4>
@@ -40,5 +42,7 @@ lab8 ทำตามchat gptน่ะ <br/>
             {{$user->personalityType->type  ?? 'No personality available' }}
             , {{$user->personalityType->description ?? '' }}
         </p>
-        <!-- ////////////////////////// -->
+
+  
+  <!-- ////////////////////////// -->
   ```
