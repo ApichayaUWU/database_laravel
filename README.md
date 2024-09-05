@@ -29,7 +29,7 @@ lab8 ทำตามchat gptน่ะ <br/>
     }
     ```
 - ไปเขียน frontend ที่ resource > views > profile > partial > update-profile-information-form.blade บรรทัดประมาณ55-56 ระหว่าง bio กับ save <br/>
-  ส่วนโค้ดfrontendนี่แล้วแต่เลย เขียนไงก็ได้ ของเราเขียนงี้
+  ส่วนโค้ดfrontendนี่แล้วแต่เลย เขียนไงก็ได้ ของเราเขียนงี้ ตลกนิดนึง แต่ไม่แก้ละ เหนื่อย
   ```
    <!-- ////////////////////////// -->
         <!-- edit personality view here -->
