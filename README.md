@@ -1,4 +1,4 @@
-lab8 ทำตามchat gptน่ะ
+lab8 ทำตามchat gptน่ะ __
 ......หลังจาก seeding ตาราง personality type ได้ ........
 - เราสร้่างไฟล์ migration อีกอันเอามาเพิ่ม attribute ใส่ตาราง users (สุดแล้วแต่จะตั้งชื่อเลย เราตั้งชื่อว่า personality_type_id)
   ```
