@@ -4,7 +4,7 @@ lab8 ทำตามchat gptน่ะ <br/>
   ```
    ./vendor/bin/sail artisan make:migration add_personality_type_id_to_users_table
   ```
-- เขียนไฟล์ migrate ของ add ให้เรียบร้อย แล้วก็ ./vendor/bin/sail artisan migrate
+- เขียนไฟล์ migrate ของ add ให้เรียบร้อย(คุ้ยเอาในgitนี้ก็ได้) แล้วก็ ./vendor/bin/sail artisan migrate
 - ลองไปใส่ค่าให้ personality_type_id ในdbeaver เผื่อไว้test (เราไม่ได้ทำmethod update ยังไม่ได้ลอง ไม่รู้ทำไง)
 - ไปที่ไฟล์ Models/PersonalityType.php ที่สร้างไว้ ยัดโค้ด
   ```
