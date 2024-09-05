@@ -1,4 +1,6 @@
-lab8 ทำตามchat gptน่ะ <br/>
+# lab8 ทำตามchat gptน่ะ <br/>
+
+## ทำ Migrates
 - หลังจาก seeding ตาราง personality type ได้แล้ว
 - เราสร้างไฟล์ migration อีกอันเอามาเพิ่ม attribute ใส่ตาราง users (สุดแล้วแต่จะตั้งชื่อเลย เราตั้งชื่อว่า personality_type_id)
   ```
@@ -6,6 +8,8 @@ lab8 ทำตามchat gptน่ะ <br/>
   ```
 - เขียนไฟล์ migrate ของ add ให้เรียบร้อย(คุ้ยเอาในgitนี้ก็ได้) แล้วก็ ./vendor/bin/sail artisan migrate
 - ลองไปใส่ค่าให้ personality_type_id ในdbeaver เผื่อไว้test (เราไม่ได้ทำmethod update ยังไม่ได้ลอง ไม่รู้ทำไง)
+
+## ทำ Models
 - ไปที่ไฟล์ Models/PersonalityType.php ที่สร้างไว้ ยัดโค้ด
   ```
   public function user()
@@ -20,6 +24,7 @@ lab8 ทำตามchat gptน่ะ <br/>
         return $this->belongsTo(PersonalityType::class, 'personality_type_id');
     }
   ```
+## ทำ Views
 - ไปที่ UserController.php กำหนด view ให้มัน(chat gpt บอกมา)
     ```
     public function showPersonality($id)
