@@ -2,7 +2,7 @@
 
 ## ทำ Migrates
 - หลังจาก seeding ตาราง personality type ได้แล้ว
-- เราสร้างไฟล์ migration อีกอันเอามาเพิ่ม attribute ใส่ตาราง users (สุดแล้วแต่จะตั้งชื่อเลย เราตั้งชื่อว่า personality_type_id)
+- เราสร้างไฟล์ migration อีกอันเอามาเพิ่ม attribute ใส่ตาราง users(ถ้าถามว่าทำไม มันดูง่ายกว่าทางอื่นทั้ง) (สุดแล้วแต่จะตั้งชื่อเลย เราตั้งชื่อว่า personality_type_id)
   ```
    ./vendor/bin/sail artisan make:migration add_personality_type_id_to_users_table
   ```
