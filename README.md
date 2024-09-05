@@ -28,7 +28,7 @@ lab8 ทำตามchat gptน่ะ <br/>
         return view('user.profile', compact('user'));
     }
     ```
-- ไปเขียน frontend ที่ resource > views > profile > partial > update-profile-information-form.blade บรรทัดประมาณ55-56 ระหว่าง bio กับ save <br\>
+- ไปเขียน frontend ที่ resource > views > profile > partial > update-profile-information-form.blade บรรทัดประมาณ55-56 ระหว่าง bio กับ save <br/>
   ส่วนโค้ดfrontendนี่แล้วแต่เลย เขียนไงก็ได้ ของเราเขียนงี้
   ```
    <!-- ////////////////////////// -->
