@@ -55,6 +55,9 @@
   ```
 ## ทำ Views
 - ไปที่ UserController.php กำหนด view ให้มัน(chat gpt บอกมา)
+  ```
+  use App\Models\PersonalityType;
+  ```
     ```
     public function showPersonality($id)
     {
