@@ -97,7 +97,8 @@
 - แก้ view ที่ file ProfileController.php นิดหน่อยให้มันใช้ตัวแปรที่ดึงจาก personality_types ใน databaseได้ ****อย่าลืมใส่ use App\Models\PersonalityType;
   ```
   use App\Models\PersonalityType;
-
+  ```
+  ```
   public function edit(Request $request): View
     {
         // edited
