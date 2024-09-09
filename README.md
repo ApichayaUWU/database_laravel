@@ -6,7 +6,7 @@
   ```
    ./vendor/bin/sail artisan make:migration add_personality_type_id_to_users_table
   ```
-- เขียนไฟล์ migrate ของ add_personality_type_id_to_users_table.php ให้เรียบร้อย(คุ้ยเอาในgitนี้ก็ได้) แล้วก็ค่อย ./vendor/bin/sail artisan migrate <br/> ไฟล์ migration
+- เขียนไฟล์ migrate ของ add_personality_type_id_to_users_table.php ให้เรียบร้อย(คุ้ยเอาในgitนี้ก็ได้) แล้วก็ค่อย ./vendor/bin/sail artisan migrate <br/> ไฟล์ migration (กรณีที่migrateไปแล้วใช้ไม่ได้ ตัวdatabaseมันอาจจะดีเลย์ บางทีก็นานเป็นวัน ไม่รู้ทำไม)
   ```
   <?php
 
