@@ -1,4 +1,4 @@
-# lab8 ทำตามchat gptน่ะ <br/>
+# lab8 ref.chat gpt <br/>
 
 ## ทำ Migrates
 - หลังจาก seeding ตาราง personality type ได้แล้ว (ชื่อตารางที่เราใช้ในแลปนี้คือ personality_types)
