@@ -62,8 +62,24 @@
             {{$user->personalityType->type  ?? 'No personality available' }}
             , {{$user->personalityType->description ?? '' }}
         </p>
+
+        
+            <!-- The dropdown for changing personality type  -->
+            <div class="mt-2 flex gap-4 max-h-[40px] align-middle">
+                <label for="personality_type_id" class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __('Change MBTI') }}</label>
+                <select id="personality_type_id" name="personality_type_id" class="block mt-1 w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300">
+                    <option value="">-- Select Personality --</option>
+                        @foreach($personalityTypes as $personalityType)
+                        <option value="{{ $personalityType->id }}" {{ $user->personality_type_id == $personalityType->id ? 'selected' : '' }}>
+                            {{ $personalityType->type }} 
+                        </option>
+                        @endforeach
+                </select>
+                <x-input-error class="mt-2" :messages="$errors->get('personality_type_id')" />
+            </div>    
+    
         <!-- ////////////////////////// -->
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4 mt-6">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
             <a href="{{ route('profile.show-bio') }}" class="inline-flex items-center
 px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold

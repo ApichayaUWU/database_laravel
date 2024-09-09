@@ -37,7 +37,6 @@ class UserController extends Controller
         return redirect()->route('profile.edit')->with('status', 'profile-photo-updated');
     }
 
-    /////////////
     public function showBio(){
         $user = Auth::user(); // Retrieve the currently authenticated user
         $bio = $user->bio; // Access the related bio for the user
@@ -50,6 +49,8 @@ class UserController extends Controller
         return view('user.profile', compact('user'));
     }
     //////////////////////////////////////////////////////////
+
+
     public function updateBio(Request $request){
         $user = Auth::user();
         $bio = $user->bio;
@@ -67,7 +68,4 @@ class UserController extends Controller
         }   
         return redirect()->route('profile.show-bio')->with('status', 'Bio updated successfully!');
     }
-///////////
-
-
 }

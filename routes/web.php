@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/profile/photo/update', [UserController::class,'updateProfilePhoto'])->name('profile.photo.update');
 
+
     //////////////////////////
     // Route to show the bio page
     Route::get('/profile/bio', [UserController::class, 'showBio'])->name('profile.show-bio');
