@@ -1,4 +1,4 @@
-# lab8 ref.chat gpt หมายเหตุ ผู้เขียนใช้dark mode ใครใช้light mode ไปแก้frontendเองเด้อ <br/>
+# lab8 (ref จาก chat gpt) <br/> หมายเหตุ ผู้เขียนใช้dark mode ใครใช้light mode ไปแก้frontendเองเด้อ 
 
 ## ทำ Migrates
 - หลังจาก seeding ตาราง personality type ได้แล้ว (ชื่อตารางที่เราใช้ในแลปนี้คือ personality_types)
