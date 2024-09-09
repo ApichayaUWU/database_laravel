@@ -94,7 +94,7 @@
             'personality_type_id' => 'required|exists:personality_types,id',
         ];
   ```
-- ที่ file ProfileController.php เติมอันนี้
+- ที่ file ProfileController.php เติมอันนี้ แล้วก็อย่าลืม use App\Models\PersonalityType;
   ```
   use App\Models\PersonalityType;
 
