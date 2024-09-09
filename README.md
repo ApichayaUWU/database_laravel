@@ -84,7 +84,7 @@
   <!-- ////////////////////////// -->
   ```
 ## (optional) update personality(ได้ไง) *** เช็คชื่อตัวแปร attribute ตารางกับชื่อmodelที่ตัวเองใช้ด้วย
-- app > Http > Controllers > Requests > ProfileUpdateRequest.php เติมอันนี้
+- app > Http > Controllers > Requests > ProfileUpdateRequest.php เติมอันนี้ ให้มันกดอัพเดต(ปุ่ม save)ได้
   ```
         return [
             'name' => ['required', 'string', 'max:255'],
@@ -94,7 +94,7 @@
             'personality_type_id' => 'required|exists:personality_types,id',
         ];
   ```
-- ที่ file ProfileController.php เติมอันนี้ แล้วก็อย่าลืม use App\Models\PersonalityType;
+- แก้ view ที่ file ProfileController.php นิดหน่อยให้มันใช้ตัวแปรที่ดึงจาก personality_types ใน databaseได้ ****อย่าลืมใส่ use App\Models\PersonalityType;
   ```
   use App\Models\PersonalityType;
 
