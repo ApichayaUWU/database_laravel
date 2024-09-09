@@ -83,3 +83,45 @@
   
   <!-- ////////////////////////// -->
   ```
+## (optional) update personality(ได้ไง) *** เช็คชื่อตัวแปร attribute ตารางกับชื่อmodelที่ตัวเองใช้ด้วย
+- app > Http > Controllers > Requests > ProfileUpdateRequest.php เติมอันนี้
+  ```
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'personality_type_id' => 'required|exists:personality_types,id', // added here
+        ];
+  ```
+- ที่ file ProfileController.php เติมอันนี้
+  ```
+  use App\Models\PersonalityType;
+
+  public function edit(Request $request): View
+    {
+        // edited
+        $user = auth()->user();
+        $personalityTypes = PersonalityType::all(); 
+        return view('profile.edit', compact('user', 'personalityTypes'));
+    
+        // old version
+        // return view('profile.edit', [
+        //     'user' => $request->user(), 
+        // ]);
+    }
+  ```
+- เพิ่มcode frontend ที่หน้าเดิม เอาไปวางต่อจาก show personality ก็ได้
+  ```
+            <!-- The dropdown for changing personality type  -->
+            <div class="mt-2 flex gap-4 max-h-[40px] align-middle">
+                <label for="personality_type_id" class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __('Change MBTI') }}</label>
+                <select id="personality_type_id" name="personality_type_id" class="block mt-1 w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300">
+                    <option value="">-- Select Personality --</option>
+                        @foreach($personalityTypes as $personalityType)
+                        <option value="{{ $personalityType->id }}" {{ $user->personality_type_id == $personalityType->id ? 'selected' : '' }}>
+                            {{ $personalityType->type }} 
+                        </option>
+                        @endforeach
+                </select>
+                <x-input-error class="mt-2" :messages="$errors->get('personality_type_id')" />
+            </div>    
+  ```
