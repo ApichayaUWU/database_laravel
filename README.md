@@ -89,7 +89,9 @@
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'personality_type_id' => 'required|exists:personality_types,id', // added here
+  
+               // added here
+            'personality_type_id' => 'required|exists:personality_types,id',
         ];
   ```
 - ที่ file ProfileController.php เติมอันนี้
