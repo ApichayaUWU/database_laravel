@@ -1,12 +1,14 @@
 # lab9 
 ## raw SQL query
 ```
-SELECT de.id, de.date, de.content
-FROM diary_entries de
-JOIN diary_entry_emotions dee ON de.id = dee.diary_entry_id
+SELECT de.id, de.date, de.content, e.name, dee.intensity
+FROM diary_entries AS de
+JOIN diary_entry_emotions AS dee ON de.id = dee.diary_entry_id
+JOIN emotions AS e ON dee.emotion_id = e.id
 WHERE dee.emotion_id = 2
 AND de.content LIKE '%happy%'
-AND de.user_id = :userId;
+AND de.user_id = $userID; -- which is the authenticated user id
+
 ```
 
 # lab8 (ref จาก chat gpt) <br/> หมายเหตุ ผู้เขียนใช้dark mode ใครใช้light mode ไปแก้frontendเองเด้อ 
