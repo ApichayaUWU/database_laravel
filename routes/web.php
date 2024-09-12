@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
     /////////////////////////////
 
     Route::resource('diary', DiaryEntryController::class);
+
+    Route::get('/display_diary', [DiaryEntryController::class, 'display_diary'])->name('diary.display_diary');
 });
 
 require __DIR__.'/auth.php';

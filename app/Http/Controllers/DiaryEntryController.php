@@ -6,55 +6,44 @@ use Illuminate\Http\Request;
 use App\Models\DiaryEntry;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Emotion;
 
 class DiaryEntryController extends Controller
 {
-    //
-    // public function index()
-    // {
-    //     $diaryEntries = Auth::user()->diaryEntries()->get();
-    //     return view('diary.index', compact('diaryEntries'));
-    // }
 
-    // public function create()
-    // {
-    //     return view('diary.create');
-    // }
+    public function display_diary()
+    {
+        $userId = Auth::id(); // Get the authenticated user's ID
 
-    // public function store(Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'date' => 'required|date',
-    //         'content' => 'required|string',
-    //     ]);
-    //     Auth::user()->diaryEntries()->create($validated);
-    //     return redirect()->route('diary.index')->with('status','Diary entry added successfully!');
-    // }
+        // Fetch all diary entries for the authenticated user
+        $diaryEntries = DB::table('diary_entries')
+            ->where('user_id', $userId)
+            ->get();
+        /////---------------------------------------------------------
 
+        // Fetch all diary entries for the authenticated user
+        // $diaryEntries = DB::table('diary_entries')
+        //     ->where('user_id', $userId)
+        //     ->first();
+
+
+
+        //return response()->json($diaryEntries);
+        return view('diary.display_diary', compact('diaryEntries'));
+    }
+
+    
+
+    
     public function show(string $id)
     {   
         $diaryEntry = Auth::user()->diaryEntries()->findOrFail($id);
         return view('diary.show', compact('diaryEntry'));
     }
 
-    // public function edit(string $id)
-    // {
-    //     $diaryEntry = Auth::user()->diaryEntries()->findOrFail($id);
-    //     return view('diary.edit', compact('diaryEntry'));
-    // }
-
-    // public function update(Request $request, string $id)
-    // {
-    //     // Retrieve the diary entry by its ID
-    //     $diaryEntry = DiaryEntry::findOrFail($id);
-    //     $validated = $request->validate([
-    //         'date' => 'required|date',
-    //         'content' => 'required|string',
-    //     ]);
-    //     $diaryEntry->update($validated);
-    //     return redirect()->route('diary.index')->with('status','Diary entry updated successfully!');
-    // }
+    
 
     public function destroy(string $id)
     {
@@ -70,9 +59,31 @@ class DiaryEntryController extends Controller
 
     public function index()
     {
-        $diaryEntries = Auth::user()->diaryEntries()->with('emotions')->get();
-        return view('diary.index', compact('diaryEntries'));
+        // Get the paginated diary entries with their associated emotions
+        $diaryEntries = Auth::user()->diaryEntries()->with('emotions')->paginate(5);
+
+        // Get the logged-in user ID
+        $userId = Auth::id();
+
+        // Count how many diaries are related to each emotion
+        $emotionCounts = DB::table('diary_entry_emotions as dee')
+            ->join('diary_entries as de', 'dee.diary_entry_id', '=', 'de.id')
+            ->select('dee.emotion_id', DB::raw('count(dee.diary_entry_id) as diary_count'))
+            ->where('de.user_id', $userId)
+            ->whereIn('dee.emotion_id', [1, 2, 3, 4, 5])
+            ->groupBy('dee.emotion_id')
+            ->get();
+
+        // Convert the data into a format suitable for display
+        $summary = [];
+        foreach ($emotionCounts as $count) {
+            $summary[$count->emotion_id] = $count->diary_count;
+        }
+
+        // Return the view with both diary entries and summary data
+        return view('diary.index', compact('diaryEntries', 'summary'));
     }
+
 
     public function create()
     {
