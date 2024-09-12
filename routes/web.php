@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('diary', DiaryEntryController::class);
 
     Route::get('/display_diary', [DiaryEntryController::class, 'display_diary'])->name('diary.display_diary');
+    // add route for func conflict_emotion()
+    Route::get('/conflict_emotion', [DiaryEntryController::class, 'conflict_emotion'])->name('diary.conflict_emotion');
 });
 
 require __DIR__.'/auth.php';

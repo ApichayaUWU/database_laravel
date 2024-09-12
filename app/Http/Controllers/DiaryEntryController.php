@@ -23,18 +23,28 @@ class DiaryEntryController extends Controller
             ->get();
         /////---------------------------------------------------------
 
-        // Fetch all diary entries for the authenticated user
-        // $diaryEntries = DB::table('diary_entries')
-        //     ->where('user_id', $userId)
-        //     ->first();
-
-
-
         //return response()->json($diaryEntries);
         return view('diary.display_diary', compact('diaryEntries'));
     }
 
-    
+    // add method for query conflcting emotions
+    public function conflict_emotion()
+    {
+        $userId = Auth::id(); // Get the authenticated user's ID
+
+        // Query to find conflicting entries
+        $diaryEntries = DB::table('diary_entries as de')
+            ->join('diary_entry_emotions as dee', 'de.id', '=', 'dee.diary_entry_id')
+            ->join('emotions as e', 'dee.emotion_id', '=', 'e.id')
+            ->where('dee.emotion_id', 2) // Sad
+            ->where('de.content', 'like', '%happy%') // Contains "happy"
+            ->where('de.user_id', $userId)
+            ->select('de.id', 'de.date', 'de.content','e.name','dee.intensity')
+            ->get();
+
+        //return response()->json($diaryEntries);
+        return view('diary.conflict_emotion', compact('diaryEntries'));
+    }
 
     
     public function show(string $id)

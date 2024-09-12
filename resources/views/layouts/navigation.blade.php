@@ -18,11 +18,18 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <x-nav-link :href="route('diary.index')" :active="request()->routeIs('diary.index')">
-                    {{ __('Diary') }}
-                </x-nav-link>
-        </div>
+                    <x-nav-link :href="route('diary.index')" :active="request()->routeIs('diary.index')">
+                        {{ __('Diary') }}
+                    </x-nav-link>
+                </div>
+                <!-- add nav for conflicting emotions page -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('diary.conflict_emotion')" :active="request()->routeIs('diary.conflict_emotion')">
+                        {{ __('Get Conflict') }}
+                    </x-nav-link>
+                </div>
             </div>
+            
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
