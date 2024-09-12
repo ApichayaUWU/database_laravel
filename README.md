@@ -7,7 +7,7 @@ JOIN diary_entry_emotions AS dee ON de.id = dee.diary_entry_id
 JOIN emotions AS e ON dee.emotion_id = e.id
 WHERE dee.emotion_id = 2
 AND de.content LIKE '%happy%'
-AND de.user_id = $userID; -- which is the authenticated user id
+AND de.user_id = $userID; -- $userID is the authenticated user id
 
 ```
 
