@@ -1,5 +1,5 @@
 # lab9 
-## raw SQL query
+raw SQL query
 ```
 SELECT de.id, de.date, de.content, e.name, dee.intensity
 FROM diary_entries AS de
