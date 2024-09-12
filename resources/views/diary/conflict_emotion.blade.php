@@ -17,11 +17,11 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50 dark:bg-gray-700">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">ID</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider ">Content</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Emotion</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Intensity</th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">ID</th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider ">Content</th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Emotion</th>
+                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Intensity</th>
                                
                                 </tr>
                             </thead>
@@ -29,8 +29,8 @@
                                 @foreach ($diaryEntries as $entry)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $entry->id }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ \Carbon\Carbon::parse($entry->date)->format('F j, Y') }}</td>
-                                        <td class="px-6 py-4 break-words max-w-[600px]">{{ $entry->content }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $entry->date }}</td>
+                                        <td class="px-6 py-4 break-words ">{{ $entry->content }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $entry->name }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $entry->intensity }}</td>
                                     </tr>
