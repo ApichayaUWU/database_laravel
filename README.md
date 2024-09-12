@@ -1,3 +1,14 @@
+# lab9 
+## raw SQL query
+```
+SELECT de.id, de.date, de.content
+FROM diary_entries de
+JOIN diary_entry_emotions dee ON de.id = dee.diary_entry_id
+WHERE dee.emotion_id = 2
+AND de.content LIKE '%happy%'
+AND de.user_id = :userId;
+```
+
 # lab8 (ref จาก chat gpt) <br/> หมายเหตุ ผู้เขียนใช้dark mode ใครใช้light mode ไปแก้frontendเองเด้อ 
 
 ## ทำ Migrates
